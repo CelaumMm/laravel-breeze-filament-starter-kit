@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -129,7 +128,7 @@ class RoleAndPermissionSeeder extends Seeder
             'remember_token' => Str::random(10),
         ])->assignRole($developerRole);
 
-        for ($i=1; $i < 50; $i++) {
+        for ($i = 1; $i < 50; $i++) {
             User::create([
                 'name' => 'Test '.$i,
                 'access_admin' => 0,

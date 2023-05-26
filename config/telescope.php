@@ -82,7 +82,6 @@ return [
         Authorize::class,
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Allowed / Ignored Paths & Commands

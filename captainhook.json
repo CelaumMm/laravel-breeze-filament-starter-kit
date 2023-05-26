@@ -9,7 +9,7 @@
         ]
     },
     "pre-commit": {
-        "enabled": false,
+        "enabled": true,
         "actions": [
             {
                 "action": "./vendor/bin/sail artisan optimize:clear"

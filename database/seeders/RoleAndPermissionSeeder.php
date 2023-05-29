@@ -48,6 +48,9 @@ class RoleAndPermissionSeeder extends Seeder
         // DEBUG
         $permissionManageDebug = Permission::create(['name' => 'manage debug']);
 
+        // QUEUE
+        $permissionManageQueue = Permission::create(['name' => 'manage queue']);
+
         // CREATE ROLES
         $superAdminRole = Role::create(['name' => 'super-admin']);
 
@@ -71,6 +74,8 @@ class RoleAndPermissionSeeder extends Seeder
             $permissionUpdateAdmin,
 
             $permissionManageDebug,
+
+            $permissionManageQueue,
         ]);
 
         $moderatorRole = Role::create(['name' => 'moderator'])->syncPermissions([

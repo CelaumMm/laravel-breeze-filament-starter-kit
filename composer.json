@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "filament/filament": "^2.17",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.8",
         "laravel/horizon": "^5.16",
@@ -18,6 +19,7 @@
         "barryvdh/laravel-debugbar": "^3.8",
         "barryvdh/laravel-ide-helper": "^2.13",
         "captainhook/captainhook": "^5.16",
+        "doctrine/dbal": "^3.6",
         "fakerphp/faker": "^1.9.1",
         "laravel-lang/common": "^3.1",
         "laravel/breeze": "^1.21",
@@ -55,7 +57,8 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:meta"
+            "@php artisan ide-helper:meta",
+            "@php artisan filament:upgrade"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

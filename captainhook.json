@@ -18,7 +18,7 @@
                 "action": "chmod -R 777 storage bootstrap/cache"
             },
             {
-                "action": "./vendor/bin/sail bin pint --test"
+                "action": "./vendor/bin/sail bin pint -v"
             },
             {
                 "action": "./vendor/bin/sail bin pest --coverage-html storage/app/coverage"

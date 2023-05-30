@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PermissionResource\Pages;
@@ -27,12 +29,11 @@ class PermissionResource extends Resource
 
     protected static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();
+        return (string) static::getModel()::count();
     }
 
     public static function form(Form $form): Form
     {
-
         return $form
             ->schema([
                 Card::make()->schema([

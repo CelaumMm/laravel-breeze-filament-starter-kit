@@ -100,9 +100,9 @@ class RoleAndPermissionSeeder extends Seeder
         User::create([
             'name' => 'Super admin',
             'access_admin' => 1,
-            'email' => 'super@super.com',
+            'email' => env('APP_ADMIN_EMAIL', 'super@super.com'),
             'email_verified_at' => now(),
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make(env('APP_ADMIN_PASSWORD', '12345678')),
             'remember_token' => Str::random(10),
         ])->assignRole($superAdminRole);
 
@@ -111,7 +111,7 @@ class RoleAndPermissionSeeder extends Seeder
             'access_admin' => 1,
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make(env('APP_ADMIN_PASSWORD', '12345678')),
             'remember_token' => Str::random(10),
         ])->assignRole($adminRole);
 
@@ -120,7 +120,7 @@ class RoleAndPermissionSeeder extends Seeder
             'access_admin' => 1,
             'email' => 'moderator@moderator.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make(env('APP_ADMIN_PASSWORD', '12345678')),
             'remember_token' => Str::random(10),
         ])->assignRole($moderatorRole);
 
@@ -129,19 +129,8 @@ class RoleAndPermissionSeeder extends Seeder
             'access_admin' => 1,
             'email' => 'developer@developer.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make(env('APP_ADMIN_PASSWORD', '12345678')),
             'remember_token' => Str::random(10),
         ])->assignRole($developerRole);
-
-        for ($i = 1; $i < 50; $i++) {
-            User::create([
-                'name' => 'Test '.$i,
-                'access_admin' => 0,
-                'email' => 'test'.$i.'@test.com',
-                'email_verified_at' => now(),
-                'password' => Hash::make('12345678'),
-                'remember_token' => Str::random(10),
-            ])->assignRole($userRole);
-        }
     }
 }

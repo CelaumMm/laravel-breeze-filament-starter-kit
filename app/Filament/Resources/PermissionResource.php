@@ -18,9 +18,12 @@ class PermissionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-key';
 
-    protected static ?string $navigationGroup = 'Admin Management';
-
     protected static ?int $navigationSort = 3;
+
+    protected static function getNavigationGroup(): ?string
+    {
+        return __('Administrative');
+    }
 
     protected static function getNavigationBadge(): ?string
     {

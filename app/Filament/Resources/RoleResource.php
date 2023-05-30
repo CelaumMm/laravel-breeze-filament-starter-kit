@@ -22,9 +22,12 @@ class RoleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cog';
 
-    protected static ?string $navigationGroup = 'Admin Management';
-
     protected static ?int $navigationSort = 2;
+
+    protected static function getNavigationGroup(): ?string
+    {
+        return __('Administrative');
+    }
 
     protected static function getNavigationBadge(): ?string
     {

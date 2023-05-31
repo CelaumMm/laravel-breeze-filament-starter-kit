@@ -30,6 +30,8 @@ class FilamentServiceProvider extends ServiceProvider
         ]);
 
         Filament::serving(function () {
+            Filament::registerViteTheme('resources/css/filament.css');
+
             $navigationItem = [];
 
             if (Gate::allows('manage debug')) {

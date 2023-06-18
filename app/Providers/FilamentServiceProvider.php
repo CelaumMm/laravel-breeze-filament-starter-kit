@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use DutchCodingCompany\FilamentSocialite\Facades\FilamentSocialite as FilamentSocialiteFacade;
+use DutchCodingCompany\FilamentSocialite\FilamentSocialite;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationItem;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Contracts\User as SocialiteUserContract;
 
 class FilamentServiceProvider extends ServiceProvider
 {
@@ -54,5 +59,12 @@ class FilamentServiceProvider extends ServiceProvider
 
             Filament::registerNavigationItems($navigationItem);
         });
+
+        FilamentSocialiteFacade::setCreateUserCallback(fn (SocialiteUserContract $oauthUser, FilamentSocialite $socialite) => $socialite->getUserModelClass()::create([
+            'name' => $oauthUser->getName(),
+            'email' => $oauthUser->getEmail(),
+            'password' => Hash::make(Str::random(7)),
+            'email_verified_at' => now(),
+        ]));
     }
 }
